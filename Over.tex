@@ -1,1 +1,227 @@
+\documentclass[12pt, a4paper]{report}
+ 
+%%-------------------------------------
+%% Codificaci{\'o}n, Fuentes e Idioma
+%%-------------------------------------
+\usepackage[T1]{fontenc}
+ 
+\usepackage[english, spanish]{babel}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{relsize}
+\usepackage{url}
+\newcommand{\sectionbreak}{\clearpage}
+\usepackage{doi}
+\usepackage{parskip}
+\usepackage{lmodern}
 
+
+%%-------------------------------------
+%% Matem{\'a}ticas
+%%-------------------------------------
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{pifont}
+\newtheorem{mydef}{Definici\'on}
+\newtheorem{mytherm}{Teorema}
+ 
+%%-------------------------------------
+%% Configuraci{\'o}n de P{\'a}gina y Espaciado
+%%-------------------------------------
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\setlength{\parskip}{0.5em}
+\renewcommand{\baselinestretch}{1.15}
+\usepackage[charter]{mathdesign}  % fuente Charter
+\usepackage{microtype}            % mejora justificación
+\hyphenpenalty=5000               % reduce cortes silábicos
+\tolerance=800                    % balance entre huecos y cortes
+\emergencystretch=3em             % último recurso antes de cortar
+ 
+
+
+ 
+%%-------------------------------------
+%% Gr{\'a}ficos y Figuras
+%%-------------------------------------
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+ 
+%%-------------------------------------
+%% Tablas
+%%-------------------------------------
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{rotating}
+\usepackage{makecell}
+\renewcommand\cellalign{tc} % Configuramos makecell para que el texto esté centrado
+ 
+%%-------------------------------------
+%% Listas y Columnas
+%%-------------------------------------
+\usepackage{enumitem}
+\usepackage{multicol}
+ 
+%%-------------------------------------
+%% Algoritmos y C{\'o}digo Fuente
+%%-------------------------------------
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\usepackage{listings}
+\usepackage{xcolor}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codeblue}{rgb}{0.0,0.0,0.6}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.98,0.98,0.98}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen}\itshape,
+    keywordstyle=\color{codeblue}\bfseries,
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single,
+    rulecolor=\color{black!20}
+}
+\lstset{style=mystyle}
+\DeclareUnicodeCharacter{2212}{-}
+ 
+%%-------------------------------------
+%% Cajas Decorativas (tcolorbox)
+%%-------------------------------------
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems, skins, breakable}
+ 
+%%-------------------------------------
+%% Colores institucionales
+%%-------------------------------------
+\definecolor{pucblue}{RGB}{0,66,130}
+\definecolor{pucred}{RGB}{180,30,30}
+\definecolor{lightblue}{RGB}{220,235,250}
+\definecolor{lightgreen}{RGB}{220,245,225}
+\definecolor{lightyellow}{RGB}{255,250,215}
+\definecolor{lightred}{RGB}{255,235,230}
+ 
+%%-------------------------------------
+%% Cajas personalizadas
+%%-------------------------------------
+\newtcolorbox{definicionbox}[1][]{
+  colback=lightblue, colframe=pucblue,
+  fonttitle=\bfseries\color{white},
+  title={Definici\'on\ifx&#1&\else: #1\fi},
+  breakable, arc=4pt, left=6pt, right=6pt
+}
+ 
+\newtcolorbox{intuicionbox}[1][]{
+  colback=lightgreen, colframe=green!60!black,
+  fonttitle=\bfseries\color{white},
+  title={Intuici\'on\ifx&#1&\else: #1\fi},
+  breakable, arc=4pt, left=6pt, right=6pt
+}
+ 
+\newtcolorbox{resultadobox}[1][]{
+  colback=lightyellow, colframe=orange!70!black,
+  fonttitle=\bfseries\color{white},
+  title={Resultado\ifx&#1&\else: #1\fi},
+  breakable, arc=4pt, left=6pt, right=6pt
+}
+ 
+\newtcolorbox{cuidadobox}[1][]{
+  colback=lightred, colframe=pucred,
+  fonttitle=\bfseries\color{white},
+  title={Atenci\'on\ifx&#1&\else: #1\fi},
+  breakable, arc=4pt, left=6pt, right=6pt
+}
+ 
+\newtcolorbox{examenbox}{
+  colback=yellow!15, colframe=yellow!60!black,
+  fonttitle=\bfseries,
+  title={$\star$ Para el examen},
+  breakable, arc=4pt, left=6pt, right=6pt
+}
+ 
+%%-------------------------------------
+%% Anexos
+%%-------------------------------------
+\usepackage[toc, title]{appendix}
+\usepackage{threeparttable}
+ 
+%%-------------------------------------
+%% Referencias
+%%-------------------------------------
+\usepackage[round, authoryear]{natbib}
+\bibliographystyle{apalike}
+\renewcommand{\bibname}{Referencias}
+ 
+%%-------------------------------------
+%% Hiperv{\'i}nculos
+%%-------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!70!black,
+    citecolor=blue!70!black,
+    anchorcolor=black,
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    pdftitle={Apunte: Feature Engineering for Inference},
+    pdfsubject={Machine Learning para Econom\'ia},
+    pdfkeywords={PCA, embeddings, autoencoders, k-means, EAE3709}
+}
+\usepackage{titling}
+\usepackage{setspace}
+ 
+%%-------------------------------------
+%% Comandos matem{\'a}ticos frecuentes
+%%-------------------------------------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\En}{\hat{\mathbb{E}}_n}
+\newcommand{\bSigma}{\bm{\Sigma}}
+\newcommand{\ck}{\mathbf{c}_k}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{titlepage}
+\centering
+
+\vspace*{1cm}
+
+{\Large \textbf{Pontificia Universidad Católica de Chile}}\\[0.5cm]
+{\large Facultad de Economía y Administración}\\[0.3cm]
+{\large Instituto de Economía UC}\\[1cm]
+
+{\LARGE \textbf{Machine Learning}}\\[1cm]
+
+{\large \textit{Juan Morales}}\\
+
+\vfill
+
+\end{titlepage}
+\tableofcontents
+\newpage
